@@ -23,9 +23,7 @@ export default async function RootLayout({
   return (
     <html className={poppins.variable}>
       <body>
-        <NextIntlClientProvider>
-          {children}
-        </NextIntlClientProvider>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
