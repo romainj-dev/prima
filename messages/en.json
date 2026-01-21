@@ -1,14 +1,31 @@
 {
-  "home": {
-    "title": "To get started, edit the page.tsx file.",
-    "descriptionPrefix": "Looking for a starting point or more instructions? Head over to",
-    "templates": "Templates",
-    "descriptionConnector": "or the",
-    "learning": "Learning",
-    "descriptionSuffix": "center.",
-    "deployNow": "Deploy Now",
-    "documentation": "Documentation",
-    "nextLogoAlt": "Next.js logo",
-    "vercelLogoAlt": "Vercel logomark"
+  "dashboard": {
+    "header": {
+      "title_user": "User",
+      "title_dashboard": "Dashboard"
+    },
+    "search": {
+      "label": "What are you looking for?",
+      "placeholder": "Search by name...",
+      "button": "Search"
+    }
+  },
+  "user": {
+    "role": {
+      "admin": "Admin",
+      "editor": "Editor",
+      "viewer": "Viewer",
+      "guest": "Guest",
+      "owner": "Owner",
+      "inactive": "Inactive"
+    },
+    "card": {
+      "team": "Team",
+      "contact_information": "Contact information",
+      "view_details": "View details"
+    }
+  },
+  "filters": {
+    "label": "Filter by:"
   }
 }

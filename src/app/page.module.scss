@@ -1,0 +1,74 @@
+.main {
+  --top-spacing: 280px;
+  --top-spacing-mobile: 60px;
+
+  width: 100%;
+  max-width: 1024px;
+  margin: var(--top-spacing) auto 0;
+  padding-bottom: var(--space-4xl);
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $bp-below-desktop) {
+    margin-top: var(--top-spacing-mobile);
+    padding: var(--space-m);
+  }
+}
+
+.header {
+  text-align: center;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  @media (max-width: $bp-below-tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: var(--font-size-title-xl) !important;
+  }
+}
+
+.titleHighlight {
+  color: var(--color-primary);
+  margin-right: 0.2em;
+}
+
+.searchSection {
+  --max-section-width: 670px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  max-width: var(--max-section-width);
+  margin: var(--space-l) auto 0;
+}
+
+.searchInput {
+  width: 100%;
+}
+
+.searchButtonText {
+  @media (max-width: $bp-below-tablet) {
+    display: none;
+  }
+}
+
+.searchButtonIcon {
+  display: none;
+
+  @media (max-width: $bp-below-tablet) {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.userList {
+  margin-top: var(--space-3xl);
+}

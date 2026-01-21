@@ -1,0 +1,33 @@
+.filterRow {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--space-xl);
+}
+
+.scrollableRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: var(--space-3xs);
+  margin-bottom: var(--space-xs);
+
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    height: 2px;
+  }
+}
+
+.label {
+  white-space: nowrap;
+}
+
+.badgesContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  flex-shrink: 0;
+}
