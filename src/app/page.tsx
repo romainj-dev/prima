@@ -1,38 +1,41 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations("home");
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <Image
           className={styles.logo}
           src="/next.svg"
-          alt="Next.js logo"
+          alt={t("nextLogoAlt")}
           width={100}
           height={20}
           priority
         />
         <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+          <h1>{t("title")}</h1>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
+            {t("descriptionPrefix")}{" "}
             <a
               href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Templates
+              {t("templates")}
             </a>{" "}
-            or the{" "}
+            {t("descriptionConnector")}{" "}
             <a
               href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Learning
+              {t("learning")}
             </a>{" "}
-            center.
+            {t("descriptionSuffix")}
           </p>
         </div>
         <div className={styles.ctas}>
@@ -45,11 +48,11 @@ export default function Home() {
             <Image
               className={styles.logo}
               src="/vercel.svg"
-              alt="Vercel logomark"
+              alt={t("vercelLogoAlt")}
               width={16}
               height={16}
             />
-            Deploy Now
+            {t("deployNow")}
           </a>
           <a
             className={styles.secondary}
@@ -57,7 +60,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Documentation
+            {t("documentation")}
           </a>
         </div>
       </main>

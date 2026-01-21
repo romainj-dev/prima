@@ -1,0 +1,14 @@
+{
+  "home": {
+    "title": "To get started, edit the page.tsx file.",
+    "descriptionPrefix": "Looking for a starting point or more instructions? Head over to",
+    "templates": "Templates",
+    "descriptionConnector": "or the",
+    "learning": "Learning",
+    "descriptionSuffix": "center.",
+    "deployNow": "Deploy Now",
+    "documentation": "Documentation",
+    "nextLogoAlt": "Next.js logo",
+    "vercelLogoAlt": "Vercel logomark"
+  }
+}
