@@ -1,0 +1,14 @@
+@use "./theme";
+@use "./reset";
+
+html {
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-family-base);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+}

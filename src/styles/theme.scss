@@ -1,0 +1,45 @@
+:root {
+  /* Colors */
+  --color-primary: #fb6232;
+  --color-text: #1b2134;
+  --color-text-gray: #63666a;
+  --color-user-role-admin: #003569;
+  --color-user-role-editor: #269085;
+  --color-user-role-viewer: #5993b9;
+  --color-user-role-guest: #9f009f;
+  --color-user-role-owner: #ffffff;
+  --color-background: #ffffff;
+
+  /* Typography */
+  --font-family-base: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height-tight: 100%;
+  --line-height-regular: 130%;
+  --line-height-relaxed: 170%;
+  --font-size-text-s: 12px;
+  --font-size-text-m: 14px;
+  --font-size-text-l: 16px;
+  --font-size-title-s: 18px;
+  --font-size-title-m: 24px;
+  --font-size-title-l: 32px;
+  --font-size-title-xl: 48px;
+  --font-size-title-xxl: 60px;
+
+  /* Radius */
+  --radius-s: 8px;
+  --radius-m: 20px;
+  --radius-round: 100%;
+
+  /* Spacing */
+  --space-4xs: 2px;
+  --space-3xs: 4px;
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-s: 16px;
+  --space-m: 20px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+}
