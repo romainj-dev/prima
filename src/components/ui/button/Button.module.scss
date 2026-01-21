@@ -1,0 +1,78 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  /* Ensure border width exists for layout stability */
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  line-height: var(--line-height-tight);
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Variants */
+  &.solid {
+    &.primary {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border-color: var(--color-primary);
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+
+    &.primary {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+
+      &:hover {
+        background-color: rgba(251, 98, 50, 0.05); // slightly opaque primary
+      }
+    }
+  }
+
+  /* Sizes */
+  &.small {
+    --small-height: 40px;
+
+    height: var(--small-height);
+    min-height: var(--small-height);
+    padding: var(--space-3xs) var(--space-s);
+    font-size: var(--font-size-text-s);
+    border-radius: var(--radius-m);
+  }
+
+  &.medium {
+    --medium-height: 48px;
+
+    height: var(--medium-height);
+    min-height: var(--medium-height);
+    padding: var(--space-3xs) var(--space-xl);
+    font-size: var(--font-size-text-l);
+    border-radius: var(--radius-m);
+  }
+
+  &.fullWidth {
+    width: 100%;
+    display: flex;
+    /* Ensure flex behavior is maintained */
+  }
+
+  &.stretchHeight {
+    height: 100%;
+    padding-top: var(--space-3xs);
+    padding-bottom: var(--space-3xs);
+  }
+}

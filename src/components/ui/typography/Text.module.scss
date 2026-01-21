@@ -1,0 +1,102 @@
+.text {
+  color: var(--text-color, var(--color-text));
+  letter-spacing: 0.02em;
+
+  /* Sizes & Line Heights from Design */
+  &.l {
+    font-size: var(--font-size-text-l);
+    line-height: var(--line-height-tight);
+  }
+
+  &.m {
+    font-size: var(--font-size-text-m);
+    line-height: var(--line-height-relaxed);
+  }
+
+  &.s {
+    font-size: var(--font-size-text-s);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Title Sizes */
+  &.title-s {
+    font-size: var(--font-size-title-s);
+    /* 18px */
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-regular);
+  }
+
+  &.title-m {
+    font-size: var(--font-size-title-m);
+    /* 24px */
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-regular);
+  }
+
+  &.title-l {
+    font-size: var(--font-size-title-l);
+    /* 32px */
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+  }
+
+  &.title-xl {
+    font-size: var(--font-size-title-xl);
+    /* 48px */
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+  }
+
+  &.title-xxl {
+    font-size: var(--font-size-title-xxl);
+    /* 60px */
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+
+    @media (max-width: $bp-below-tablet) {
+      font-size: var(--font-size-title-xl) !important;
+    }
+  }
+
+  /* Weights */
+  &.light {
+    font-weight: var(--font-weight-light);
+  }
+
+  &.regular {
+    font-weight: var(--font-weight-regular);
+  }
+
+  &.medium {
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Truncation */
+  &.truncateSingle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+  }
+
+  &.truncateMulti {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--text-lines);
+    line-clamp: var(--text-lines);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Uppercase */
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  /* Underline */
+  &.underline {
+    text-decoration: underline;
+  }
+}

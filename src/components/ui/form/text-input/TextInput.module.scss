@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  width: 100%;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+
+  &.hasAddon {
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+.input {
+  --input-height: 78px;
+  --input-height-mobile: 48px;
+
+  height: var(--input-height);
+  min-height: var(--input-height);
+  width: 100%;
+  padding: var(--space-3xs) var(--space-l);
+  font-size: var(--font-size-text-l);
+  border-radius: var(--radius-m);
+  border: 1px solid transparent;
+  background-color: var(--color-background-white);
+  color: var(--color-text-input);
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+
+  .hasAddon & {
+    flex: 1;
+  }
+
+  &::placeholder {
+    color: var(--color-text-gray);
+    opacity: 0.6;
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: $bp-below-tablet) {
+    height: var(--input-height-mobile);
+    min-height: var(--input-height-mobile);
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.addon {
+  display: flex;
+  align-items: stretch;
+  padding: 0 var(--space-m);
+}
