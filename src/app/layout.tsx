@@ -6,7 +6,7 @@ import "../styles/globals.scss";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
@@ -21,8 +21,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
-      <body className={poppins.variable}>
+    <html className={poppins.variable}>
+      <body>
         <NextIntlClientProvider>
           {children}
         </NextIntlClientProvider>

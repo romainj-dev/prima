@@ -3,6 +3,9 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  sassOptions: {
+    additionalData: `@use "@/styles/theme" as *;`,
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

@@ -1,23 +1,35 @@
+/* Breakpoints (SCSS variables - CSS vars don't work in media queries) */
+$bp-below-desktop: 1279px; // max-width for screens < 1280
+$bp-below-tablet: 767px;   // max-width for screens < 768
+
 :root {
   /* Colors */
   --color-primary: #fb6232;
-  --color-text: #1b2134;
+  --color-text: #292929;
+  --color-text-secondary: #1b2134;
+  --color-text-white: #ffffff;
   --color-text-gray: #63666a;
+  --color-text-input: #000000;
   --color-user-role-admin: #003569;
   --color-user-role-editor: #269085;
   --color-user-role-viewer: #5993b9;
   --color-user-role-guest: #9f009f;
   --color-user-role-owner: #ffffff;
-  --color-background: #ffffff;
+  --color-user-role-inactive: #ffffff;
+  --color-background: #f5f5f5;
+  --color-background-white: #ffffff;
+  --color-border-gray: #D3D3DC;
+  --color-divider: #63666a;
 
   /* Typography */
   --font-family-base: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
-  --line-height-tight: 100%;
-  --line-height-regular: 130%;
-  --line-height-relaxed: 170%;
+  --line-height-tight: 1;
+  --line-height-regular: 1.3;
+  --line-height-relaxed: 1.7;
   --font-size-text-s: 12px;
   --font-size-text-m: 14px;
   --font-size-text-l: 16px;
@@ -40,6 +52,8 @@
   --space-s: 16px;
   --space-m: 20px;
   --space-l: 24px;
-  --space-xl: 32px;
+  --space-xl: 30px;
   --space-2xl: 40px;
+  --space-3xl: 48px;
+  --space-4xl: 60px;
 }
