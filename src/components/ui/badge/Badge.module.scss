@@ -14,6 +14,10 @@
   color: var(--badge-color);
   transition: all 0.2s ease-in-out;
 
+  // Reset button styles
+  border: none;
+  appearance: none;
+
   &.clickable {
     cursor: pointer;
   }

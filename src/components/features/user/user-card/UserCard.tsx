@@ -25,7 +25,7 @@ export function UserCard({ user, onViewDetails }: UserCardProps) {
       <div className={styles.header}>
         <UserRoleBadge role={user.role} />
         <div className={styles.userInfo}>
-          <Text size="title-m" as="h3" truncate title={fullName}>
+          <Text size="title-m" as="h2" truncate title={fullName}>
             {fullName}
           </Text>
           <Text size="m" color="text-gray" truncate title={user.jobTitle}>

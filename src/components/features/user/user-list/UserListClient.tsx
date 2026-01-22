@@ -12,11 +12,18 @@ import styles from "./UserListClient.module.scss"
 function SearchButton() {
   const t = useTranslations("dashboard.search")
   return (
-    <Button type="submit" size="medium" stretchHeight data-testid="search-button">
+    <Button
+      type="submit"
+      size="medium"
+      stretchHeight
+      aria-label={t("button")}
+      data-testid="search-button"
+    >
       <span className={styles.searchButtonText}>{t("button")}</span>
       <svg
         className={styles.searchButtonIcon}
         viewBox="0 0 24 24"
+        aria-hidden="true"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import { NextIntlClientProvider } from "next-intl"
 import "@/styles/globals.scss"
+import { defaultLocale } from "@/i18n/config"
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -21,7 +22,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html className={poppins.variable}>
+    <html className={poppins.variable} lang={defaultLocale}>
       <body>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { Poppins } from "next/font/google"
 import "@/styles/globals.scss"
 import { ErrorState } from "@/components/commons/error-boundary/ErrorState"
+import { defaultLocale } from "@/i18n/config"
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -25,7 +26,7 @@ export default function GlobalError({
   }, [error])
 
   return (
-    <html className={poppins.variable}>
+    <html className={poppins.variable} lang={defaultLocale}>
       <body>
         <ErrorState error={error} onRetry={reset} />
       </body>
