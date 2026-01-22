@@ -1,6 +1,6 @@
-export const ERROR_CODES = ["invalid_role"] as const
-
-export type ErrorCode = (typeof ERROR_CODES)[number]
+export enum ErrorCode {
+  INVALID_ROLE = "invalid_role",
+}
 
 export class AppError extends Error {
   readonly code: ErrorCode
@@ -13,7 +13,7 @@ export class AppError extends Error {
 }
 
 export function isErrorCode(value: unknown): value is ErrorCode {
-  return typeof value === "string" && ERROR_CODES.includes(value as ErrorCode)
+  return typeof value === "string" && Object.values(ErrorCode).includes(value as ErrorCode)
 }
 
 export function getErrorCode(error: unknown): ErrorCode | null {

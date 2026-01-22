@@ -1,7 +1,7 @@
 import { User, USER_ROLES, UserRole } from "@/types/user"
 import { MOCK_USERS } from "@/data/users"
 import { normalizeSearchQuery } from "@/lib/search"
-import { AppError } from "@/lib/errors"
+import { AppError, ErrorCode } from "@/lib/errors"
 
 export interface GetUsersParams {
   filters?: {
@@ -15,6 +15,7 @@ export interface GetUsersResult {
 }
 
 const FAKE_API_DELAY_MS = 2000
+const INVALID_ROLE_ERROR = ErrorCode.INVALID_ROLE
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -46,7 +47,7 @@ export async function getUsers(
   // Filter by role
   if (role) {
     if (!USER_ROLES.includes(role as UserRole)) {
-      throw new AppError("invalid_role")
+      throw new AppError(INVALID_ROLE_ERROR)
     }
     users = users.filter((user) => user.role === role.trim())
   }
