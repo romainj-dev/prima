@@ -23,6 +23,12 @@
       "team": "Team",
       "contact_information": "Contact information",
       "view_details": "View details"
+    },
+    "list": {
+      "empty": {
+        "title": "No users found",
+        "description": "Try adjusting your search or filters."
+      }
     }
   },
   "filters": {
