@@ -1,57 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Important
 
-## Getting Started
+This app is missing a few things I did not have time to handle:
+- Proper documentation strategy.
+- Graceful degradation (at least locally fail the list when a wrong role is sent).
+- [Feature] Open modal to view user details.
 
-First, run the development server:
+## Prima
+
+A small Next.js app for browsing and filtering users.
+
+## Architecture
+
+- App Router with server-side data fetching.
+- A simple BFF-style API route (`/api/users`) handles filtering and error mapping.
+- Data is mocked in `src/data/users.ts` and served via `src/lib/users.ts` with a fake delay.
+
+## Commands
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the app:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build and start:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm build
+pnpm start
+```
 
 ## Testing
 
-Run unit tests with Jest:
+Unit tests:
 
 ```bash
 pnpm test
 ```
 
-Run Cypress E2E tests (start the app first in another terminal):
+E2E tests (start the app in another terminal):
 
 ```bash
 pnpm dev
 pnpm cypress
 ```
 
-Headless Cypress run:
+Headless E2E:
 
 ```bash
 pnpm cypress:run
 ```
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
