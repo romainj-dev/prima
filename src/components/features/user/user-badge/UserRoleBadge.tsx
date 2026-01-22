@@ -1,13 +1,19 @@
-import { Badge } from "@/components/ui/badge/Badge";
-import { User } from "@/components/features/user/user-card/UserCard";
-import { useTranslations } from "next-intl";
+import { Badge } from "@/components/ui/badge/Badge"
+import { UserRole } from "@/types/user"
+import { useTranslations } from "next-intl"
 
 export interface UserRoleBadgeProps {
-  role: User["role"];
+  role: UserRole
+  onClick?: () => void
+  looksDisabled?: boolean
 }
 
-export function UserRoleBadge({ role }: UserRoleBadgeProps) {
-  const t = useTranslations("user.role");
+export function UserRoleBadge({
+  role,
+  onClick,
+  looksDisabled,
+}: UserRoleBadgeProps) {
+  const t = useTranslations("user.role")
 
   const bgVar = {
     admin: "--color-user-role-admin",
@@ -15,22 +21,27 @@ export function UserRoleBadge({ role }: UserRoleBadgeProps) {
     viewer: "--color-user-role-viewer",
     guest: "--color-user-role-guest",
     owner: "--color-user-role-owner",
-    inactive: "--color-text-gray",
-  }[role];
+    inactive: "--color-user-role-inactive",
+  }[role]
   const colorVar = {
     admin: "--color-text-white",
     editor: "--color-text-white",
     viewer: "--color-text-white",
     guest: "--color-text-white",
     owner: "--color-text",
-    inactive: "--color-text-gray",
-  }[role];
+    inactive: "--color-text",
+  }[role]
 
-  const text = t(role);
+  const text = t(role)
 
   return (
-    <Badge bgVar={bgVar} colorVar={colorVar}>
+    <Badge
+      bgVar={bgVar}
+      colorVar={colorVar}
+      onClick={onClick}
+      looksDisabled={looksDisabled}
+    >
       {text}
     </Badge>
-  );
+  )
 }

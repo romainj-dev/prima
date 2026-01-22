@@ -1,20 +1,34 @@
-import React, { HTMLAttributes, forwardRef, CSSProperties } from "react";
-import clsx from "clsx";
-import styles from "./Badge.module.scss";
+import React, { HTMLAttributes, forwardRef, CSSProperties } from "react"
+import clsx from "clsx"
+import styles from "./Badge.module.scss"
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  bgVar: string;
-  colorVar: string;
+  bgVar: string
+  colorVar: string
+  looksDisabled?: boolean
 }
 
 function BadgeComponent(
-  { className, children, bgVar, colorVar, style, ...props }: BadgeProps,
+  {
+    className,
+    children,
+    bgVar,
+    colorVar,
+    style,
+    looksDisabled,
+    ...props
+  }: BadgeProps,
   ref: React.ForwardedRef<HTMLSpanElement>,
 ) {
   return (
     <span
       ref={ref}
-      className={clsx(styles.badge, className)}
+      className={clsx(
+        styles.badge,
+        className,
+        looksDisabled && styles.looksDisabled,
+        props.onClick && styles.clickable,
+      )}
       style={
         {
           "--badge-bg": `var(${bgVar})`,
@@ -26,9 +40,9 @@ function BadgeComponent(
     >
       {children}
     </span>
-  );
+  )
 }
 
-export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(BadgeComponent);
+export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(BadgeComponent)
 
-Badge.displayName = "Badge";
+Badge.displayName = "Badge"

@@ -2,8 +2,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   border: 1px solid transparent;
-  /* Ensure border width exists for layout stability */
   cursor: pointer;
   font-weight: var(--font-weight-medium);
   transition: all 0.2s ease-in-out;
@@ -67,7 +67,6 @@
   &.fullWidth {
     width: 100%;
     display: flex;
-    /* Ensure flex behavior is maintained */
   }
 
   &.stretchHeight {

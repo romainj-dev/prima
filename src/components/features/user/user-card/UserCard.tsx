@@ -1,30 +1,24 @@
-"use client";
+"use client"
 
-import { Text } from "@/components/ui/typography/Text";
-import { Button } from "@/components/ui/button/Button";
-import { Link } from "@/components/ui/link/Link";
-import styles from "./UserCard.module.scss";
-import { UserRoleBadge } from "@/components/features/user/user-badge/UserRoleBadge";
-import { useTranslations } from "next-intl";
+import { Text } from "@/components/ui/typography/Text"
+import { Button } from "@/components/ui/button/Button"
+import { Link } from "@/components/ui/link/Link"
+import styles from "./UserCard.module.scss"
+import { UserRoleBadge } from "@/components/features/user/user-badge/UserRoleBadge"
+import { useTranslations } from "next-intl"
+import { User } from "@/types/user"
+import clsx from "clsx"
 
-export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: "admin" | "editor" | "viewer" | "guest" | "owner" | "inactive";
-  jobTitle: string;
-  team: string;
-}
+export type { User }
 
 export interface UserCardProps {
-  user: User;
-  onViewDetails?: (userId: string) => void;
+  user: User
+  onViewDetails?: (userId: string) => void
 }
 
 export function UserCard({ user, onViewDetails }: UserCardProps) {
-  const t = useTranslations("user.card");
-  const fullName = `${user.firstName} ${user.lastName}`;
+  const t = useTranslations("user.card")
+  const fullName = `${user.firstName} ${user.lastName}`
 
   return (
     <div className={styles.card}>
@@ -65,5 +59,9 @@ export function UserCard({ user, onViewDetails }: UserCardProps) {
         {t("view_details")}
       </Button>
     </div>
-  );
+  )
+}
+
+export function UserCardSkeleton() {
+  return <div className={clsx(styles.card, styles.skeletonCard)} />
 }

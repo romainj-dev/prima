@@ -1,14 +1,13 @@
-import React, { ButtonHTMLAttributes, forwardRef } from "react";
-import clsx from "clsx";
-import styles from "./Button.module.scss";
+import React, { ButtonHTMLAttributes, forwardRef } from "react"
+import clsx from "clsx"
+import styles from "./Button.module.scss"
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "solid" | "outline";
-  color?: "primary";
-  size?: "small" | "medium";
-  fullWidth?: boolean;
-  isLoading?: boolean;
-  stretchHeight?: boolean;
+  variant?: "solid" | "outline"
+  color?: "primary"
+  size?: "small" | "medium"
+  fullWidth?: boolean
+  stretchHeight?: boolean
 }
 
 function ButtonComponent(
@@ -18,7 +17,6 @@ function ButtonComponent(
     color = "primary",
     size = "medium",
     fullWidth = false,
-    isLoading = false,
     stretchHeight = false,
     children,
     disabled,
@@ -38,19 +36,16 @@ function ButtonComponent(
         stretchHeight && styles.stretchHeight,
         className,
       )}
-      disabled={disabled || isLoading}
+      disabled={disabled}
       {...props}
     >
-      {isLoading ? (
-        <span style={{ marginRight: "8px" }}>Loading...</span>
-      ) : null}
       {children}
     </button>
-  );
+  )
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ButtonComponent,
-);
+)
 
-Button.displayName = "Button";
+Button.displayName = "Button"
