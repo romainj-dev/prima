@@ -1,0 +1,53 @@
+"use client"
+
+import { ReactNode, useCallback, useTransition } from "react"
+import { usePathname, useRouter } from "next/navigation"
+import { UserListControls } from "./UserListClient"
+import { UserListSkeleton } from "./UserList"
+
+interface UserListShellProps {
+  initialQuery?: string
+  initialRole: string | null
+  children: ReactNode
+}
+
+export function UserListShell({
+  initialQuery = "",
+  initialRole,
+  children,
+}: UserListShellProps) {
+  const router = useRouter()
+  const pathname = usePathname()
+  const [isPending, startTransition] = useTransition()
+
+  const handleApplyFilters = useCallback(
+    (query: string, role: string | null) => {
+      const params = new URLSearchParams()
+      const trimmedQuery = query.trim()
+      if (trimmedQuery) {
+        params.set("q", trimmedQuery)
+      }
+      if (role) {
+        params.set("role", role)
+      }
+
+      const newSearch = params.toString()
+      const newUrl = newSearch ? `${pathname}?${newSearch}` : pathname
+      startTransition(() => {
+        router.push(newUrl, { scroll: false })
+      })
+    },
+    [pathname, router, startTransition],
+  )
+
+  return (
+    <>
+      <UserListControls
+        initialQuery={initialQuery}
+        initialRole={initialRole}
+        onApplyFilters={handleApplyFilters}
+      />
+      {isPending ? <UserListSkeleton /> : children}
+    </>
+  )
+}

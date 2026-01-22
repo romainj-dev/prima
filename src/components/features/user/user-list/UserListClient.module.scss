@@ -1,0 +1,31 @@
+.searchSection {
+  --max-section-width: 670px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  width: 100%;
+  max-width: var(--max-section-width);
+  margin: var(--space-l) auto var(--space-3xl);
+}
+
+.searchInput {
+  width: 100%;
+}
+
+.searchButtonText {
+  @media (max-width: $bp-below-tablet) {
+    display: none;
+  }
+}
+
+.searchButtonIcon {
+  display: none;
+
+  @media (max-width: $bp-below-tablet) {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}
