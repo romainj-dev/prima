@@ -46,6 +46,7 @@ export function UserListShell({
     <>
       <ErrorBoundary>
         <UserListControls
+          key={`${initialQuery}::${initialRole ?? ""}`}
           initialQuery={initialQuery}
           initialRole={initialRole}
           onApplyFilters={handleApplyFilters}
