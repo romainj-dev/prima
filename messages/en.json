@@ -27,5 +27,12 @@
   },
   "filters": {
     "label": "Filter by:"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "retry": "Try again",
+    "home": "Back to dashboard",
+    "invalid_role": "That role filter isn't valid."
   }
 }

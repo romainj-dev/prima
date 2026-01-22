@@ -7,12 +7,20 @@ import { Text, TextProps } from "../typography/Text"
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
   size?: TextProps["size"]
+  openInNewTab?: boolean
 }
 
 const isExternalUrl = (url: string) => /^(https?|mailto):\/\//.test(url)
 
 function LinkComponent(
-  { href, className, size = "m", children, ...props }: LinkProps,
+  {
+    href,
+    className,
+    size = "m",
+    openInNewTab = true,
+    children,
+    ...props
+  }: LinkProps,
   ref: React.ForwardedRef<HTMLAnchorElement>,
 ) {
   const isExternal = isExternalUrl(href)
@@ -32,12 +40,13 @@ function LinkComponent(
   )
 
   if (isExternal) {
+    const shouldOpenInNewTab = openInNewTab && !isMailto
     return (
       <a
         ref={ref}
         href={href}
         className={clsx(styles.link, className)}
-        {...(!isMailto && { target: "_blank", rel: "noopener noreferrer" })}
+        {...(shouldOpenInNewTab && { target: "_blank", rel: "noopener noreferrer" })}
         {...props}
       >
         {content}

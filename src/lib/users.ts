@@ -1,6 +1,7 @@
-import { User } from "@/types/user"
+import { User, USER_ROLES, UserRole } from "@/types/user"
 import { MOCK_USERS } from "@/data/users"
 import { normalizeSearchQuery } from "@/lib/search"
+import { AppError } from "@/lib/errors"
 
 export interface GetUsersParams {
   filters?: {
@@ -44,6 +45,9 @@ export async function getUsers(
 
   // Filter by role
   if (role) {
+    if (!USER_ROLES.includes(role as UserRole)) {
+      throw new AppError("invalid_role")
+    }
     users = users.filter((user) => user.role === role.trim())
   }
 

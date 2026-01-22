@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { UserListControls } from "./UserListClient"
 import { UserListSkeleton } from "./UserList"
 import { normalizeSearchQuery } from "@/lib/search"
+import { ErrorBoundary } from "@/components/commons/error-boundary/ErrorBoundary"
 
 interface UserListShellProps {
   initialQuery?: string
@@ -43,11 +44,13 @@ export function UserListShell({
 
   return (
     <>
-      <UserListControls
-        initialQuery={initialQuery}
-        initialRole={initialRole}
-        onApplyFilters={handleApplyFilters}
-      />
+      <ErrorBoundary>
+        <UserListControls
+          initialQuery={initialQuery}
+          initialRole={initialRole}
+          onApplyFilters={handleApplyFilters}
+        />
+      </ErrorBoundary>
       {isPending ? <UserListSkeleton /> : children}
     </>
   )

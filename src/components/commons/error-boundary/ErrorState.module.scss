@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: var(--space-3xl) var(--space-l);
+  box-sizing: border-box;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: var(--space-2xl);
+  border: 1px solid var(--color-border-gray);
+  border-radius: var(--radius-m);
+  background: var(--color-background-white);
+  box-sizing: border-box;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-s);
+}
