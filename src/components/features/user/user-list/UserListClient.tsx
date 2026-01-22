@@ -30,15 +30,13 @@ function SearchButton() {
   )
 }
 
-function SearchSection({
-  searchQuery,
-  onSearchChange,
-  onSubmit,
-}: {
+interface SearchSectionProps {
   searchQuery: string
   onSearchChange: (value: string) => void
   onSubmit: (e: React.FormEvent) => void
-}) {
+}
+
+function SearchSection({ searchQuery, onSearchChange, onSubmit }: SearchSectionProps) {
   const t = useTranslations("dashboard.search")
   return (
     <form onSubmit={onSubmit} className={styles.searchSection}>
@@ -54,13 +52,12 @@ function SearchSection({
   )
 }
 
-function FilterSection({
-  selectedRole,
-  onRoleSelect,
-}: {
+interface FilterSectionProps {
   selectedRole: string | null
   onRoleSelect: (role: string | null) => void
-}) {
+}
+
+function FilterSection({ selectedRole, onRoleSelect }: FilterSectionProps) {
   return (
     <FilterRow>
       {USER_ROLES.map((role) => (

@@ -4,6 +4,7 @@ import { ReactNode, useCallback, useTransition } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import { UserListControls } from "./UserListClient"
 import { UserListSkeleton } from "./UserList"
+import { normalizeSearchQuery } from "@/lib/search"
 
 interface UserListShellProps {
   initialQuery?: string
@@ -23,9 +24,9 @@ export function UserListShell({
   const handleApplyFilters = useCallback(
     (query: string, role: string | null) => {
       const params = new URLSearchParams()
-      const trimmedQuery = query.trim()
-      if (trimmedQuery) {
-        params.set("q", trimmedQuery)
+      const sanitizedQuery = normalizeSearchQuery(query)
+      if (sanitizedQuery) {
+        params.set("q", sanitizedQuery)
       }
       if (role) {
         params.set("role", role)

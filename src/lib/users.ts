@@ -1,5 +1,6 @@
 import { User } from "@/types/user"
 import { MOCK_USERS } from "@/data/users"
+import { normalizeSearchQuery } from "@/lib/search"
 
 export interface GetUsersParams {
   filters?: {
@@ -28,9 +29,12 @@ export async function getUsers(
 
   const { query, role } = filters ?? {}
 
+  // Normalize query to prevent injection and enforce length limits
+  const sanitizedQuery = normalizeSearchQuery(query)
+
   // Filter by name (first name or last name)
-  if (query) {
-    const searchQuery = query.toLowerCase().trim()
+  if (sanitizedQuery) {
+    const searchQuery = sanitizedQuery.toLowerCase()
     users = users.filter(
       (user) =>
         user.firstName.toLowerCase().includes(searchQuery) ||
