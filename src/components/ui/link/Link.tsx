@@ -1,22 +1,22 @@
-import NextLink from "next/link";
-import React, { AnchorHTMLAttributes, forwardRef } from "react";
-import clsx from "clsx";
-import styles from "./Link.module.scss";
-import { Text, TextProps } from "../typography/Text";
+import NextLink from "next/link"
+import React, { AnchorHTMLAttributes, forwardRef } from "react"
+import clsx from "clsx"
+import styles from "./Link.module.scss"
+import { Text, TextProps } from "../typography/Text"
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  href: string;
-  size?: TextProps["size"];
+  href: string
+  size?: TextProps["size"]
 }
 
-const isExternalUrl = (url: string) => /^(https?|mailto):\/\//.test(url);
+const isExternalUrl = (url: string) => /^(https?|mailto):\/\//.test(url)
 
 function LinkComponent(
   { href, className, size = "m", children, ...props }: LinkProps,
   ref: React.ForwardedRef<HTMLAnchorElement>,
 ) {
-  const isExternal = isExternalUrl(href);
-  const isMailto = href.startsWith("mailto:");
+  const isExternal = isExternalUrl(href)
+  const isMailto = href.startsWith("mailto:")
 
   const content = (
     <Text
@@ -29,7 +29,7 @@ function LinkComponent(
     >
       {children}
     </Text>
-  );
+  )
 
   if (isExternal) {
     return (
@@ -42,7 +42,7 @@ function LinkComponent(
       >
         {content}
       </a>
-    );
+    )
   }
 
   return (
@@ -54,9 +54,9 @@ function LinkComponent(
     >
       {content}
     </NextLink>
-  );
+  )
 }
 
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(LinkComponent);
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(LinkComponent)
 
-Link.displayName = "Link";
+Link.displayName = "Link"

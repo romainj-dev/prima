@@ -1,6 +1,6 @@
-import { HTMLAttributes, ElementType, CSSProperties } from "react";
-import clsx from "clsx";
-import styles from "./Text.module.scss";
+import { HTMLAttributes, ElementType, CSSProperties } from "react"
+import clsx from "clsx"
+import styles from "./Text.module.scss"
 
 type TextColor =
   | "primary"
@@ -8,11 +8,11 @@ type TextColor =
   | "text-secondary"
   | "text-gray"
   | "text-white"
-  | "text-input";
+  | "text-input"
 
 type TruncateProps =
   | { truncate?: false; lines?: never }
-  | { truncate: true; lines?: number };
+  | { truncate: true; lines?: number }
 
 export interface TextPropsBase extends HTMLAttributes<HTMLElement> {
   size?:
@@ -23,16 +23,16 @@ export interface TextPropsBase extends HTMLAttributes<HTMLElement> {
     | "title-m"
     | "title-l"
     | "title-xl"
-    | "title-xxl";
-  weight?: "light" | "regular" | "medium";
-  as?: ElementType;
-  htmlFor?: string;
-  color?: TextColor;
-  uppercase?: boolean;
-  underline?: boolean;
+    | "title-xxl"
+  weight?: "light" | "regular" | "medium"
+  as?: ElementType
+  htmlFor?: string
+  color?: TextColor
+  uppercase?: boolean
+  underline?: boolean
 }
 
-export type TextProps = TextPropsBase & TruncateProps;
+export type TextProps = TextPropsBase & TruncateProps
 
 export function Text({
   className,
@@ -49,9 +49,9 @@ export function Text({
   style,
   ...props
 }: TextProps) {
-  const lines = truncate ? (linesProp ?? 1) : undefined;
-  const isTitleSize = size?.startsWith("title-");
-  const weightClass = isTitleSize ? undefined : weight;
+  const lines = truncate ? (linesProp ?? 1) : undefined
+  const isTitleSize = size?.startsWith("title-")
+  const weightClass = isTitleSize ? undefined : weight
 
   return (
     <Component
@@ -77,5 +77,5 @@ export function Text({
     >
       {children}
     </Component>
-  );
+  )
 }
