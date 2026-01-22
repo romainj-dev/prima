@@ -23,9 +23,6 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error("Failed to load users", error)
     const code = getErrorCode(error)
-    return NextResponse.json(
-      { error: { code } },
-      { status: 500 },
-    )
+    return NextResponse.json({ error: { code } }, { status: 500 })
   }
 }

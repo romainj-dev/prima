@@ -13,7 +13,10 @@ export class AppError extends Error {
 }
 
 export function isErrorCode(value: unknown): value is ErrorCode {
-  return typeof value === "string" && Object.values(ErrorCode).includes(value as ErrorCode)
+  return (
+    typeof value === "string" &&
+    Object.values(ErrorCode).includes(value as ErrorCode)
+  )
 }
 
 export function getErrorCode(error: unknown): ErrorCode | null {

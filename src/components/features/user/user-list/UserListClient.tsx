@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { USER_ROLES } from "@/types/user"
 import { TextInput } from "@/components/ui/form/text-input/TextInput"
 import { Button } from "@/components/ui/button/Button"
@@ -43,7 +43,11 @@ interface SearchSectionProps {
   onSubmit: (e: React.FormEvent) => void
 }
 
-function SearchSection({ searchQuery, onSearchChange, onSubmit }: SearchSectionProps) {
+function SearchSection({
+  searchQuery,
+  onSearchChange,
+  onSubmit,
+}: SearchSectionProps) {
   const t = useTranslations("dashboard.search")
   return (
     <form onSubmit={onSubmit} className={styles.searchSection}>
@@ -96,11 +100,6 @@ export function UserListControls({
 }: UserListControlsProps) {
   const [searchQuery, setSearchQuery] = useState(initialQuery)
   const [selectedRole, setSelectedRole] = useState<string | null>(initialRole)
-
-  useEffect(() => {
-    setSearchQuery(initialQuery)
-    setSelectedRole(initialRole)
-  }, [initialQuery, initialRole])
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault()

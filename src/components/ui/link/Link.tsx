@@ -46,7 +46,10 @@ function LinkComponent(
         ref={ref}
         href={href}
         className={clsx(styles.link, className)}
-        {...(shouldOpenInNewTab && { target: "_blank", rel: "noopener noreferrer" })}
+        {...(shouldOpenInNewTab && {
+          target: "_blank",
+          rel: "noopener noreferrer",
+        })}
         {...props}
       >
         {content}

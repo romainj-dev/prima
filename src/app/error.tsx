@@ -15,7 +15,5 @@ export default function Error({
     console.error(error)
   }, [error])
 
-  return (
-    <ErrorState error={error} onRetry={reset} />
-  )
+  return <ErrorState error={error} onRetry={reset} />
 }

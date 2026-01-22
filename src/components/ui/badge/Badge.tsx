@@ -8,10 +8,8 @@ interface BadgeBaseProps {
   looksDisabled?: boolean
 }
 
-type BadgeSpanProps = BadgeBaseProps &
-  ComponentPropsWithoutRef<"span">
-type BadgeButtonProps = BadgeBaseProps &
-  ComponentPropsWithoutRef<"button">
+type BadgeSpanProps = BadgeBaseProps & ComponentPropsWithoutRef<"span">
+type BadgeButtonProps = BadgeBaseProps & ComponentPropsWithoutRef<"button">
 
 export type BadgeProps = BadgeSpanProps | BadgeButtonProps
 

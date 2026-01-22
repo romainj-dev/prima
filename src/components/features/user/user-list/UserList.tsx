@@ -26,13 +26,11 @@ export interface UserListProps {
 
 export function UserList({ users, className }: UserListProps) {
   return (
-    <div className={clsx(styles.userList, className)}>
-      <div className={styles.grid}>
-        {users.map((user) => (
-          <UserCard key={user.id} user={user} />
-        ))}
-      </div>
-    </div>
+    <Container className={className}>
+      {users.map((user) => (
+        <UserCard key={user.id} user={user} />
+      ))}
+    </Container>
   )
 }
 
@@ -46,12 +44,10 @@ export function UserListSkeleton({
   className,
 }: UserListSkeletonProps) {
   return (
-    <div className={clsx(styles.userList, className)}>
-      <div className={styles.grid}>
-        {Array.from({ length: count }).map((_, index) => (
-          <UserCardSkeleton key={index} />
-        ))}
-      </div>
-    </div>
+    <Container className={className}>
+      {Array.from({ length: count }).map((_, index) => (
+        <UserCardSkeleton key={index} />
+      ))}
+    </Container>
   )
 }
