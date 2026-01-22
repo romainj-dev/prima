@@ -6,12 +6,14 @@ export interface UserRoleBadgeProps {
   role: UserRole
   onClick?: () => void
   looksDisabled?: boolean
+  "data-testid"?: string
 }
 
 export function UserRoleBadge({
   role,
   onClick,
   looksDisabled,
+  "data-testid": dataTestId,
 }: UserRoleBadgeProps) {
   const t = useTranslations("user.role")
 
@@ -40,6 +42,7 @@ export function UserRoleBadge({
       colorVar={colorVar}
       onClick={onClick}
       looksDisabled={looksDisabled}
+      data-testid={dataTestId}
     >
       {text}
     </Badge>

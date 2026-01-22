@@ -55,7 +55,11 @@ export function UserCard({ user, onViewDetails }: UserCardProps) {
         </div>
       </div>
 
-      <Button fullWidth onClick={() => onViewDetails?.(user.id)}>
+      <Button
+        fullWidth
+        onClick={() => onViewDetails?.(user.id)}
+        data-testid="view-details-button"
+      >
         {t("view_details")}
       </Button>
     </div>

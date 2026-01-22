@@ -12,7 +12,7 @@ import styles from "./UserListClient.module.scss"
 function SearchButton() {
   const t = useTranslations("dashboard.search")
   return (
-    <Button type="submit" size="medium" stretchHeight>
+    <Button type="submit" size="medium" stretchHeight data-testid="search-button">
       <span className={styles.searchButtonText}>{t("button")}</span>
       <svg
         className={styles.searchButtonIcon}
@@ -47,6 +47,7 @@ function SearchSection({ searchQuery, onSearchChange, onSubmit }: SearchSectionP
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
         addon={<SearchButton />}
+        data-testid="search-input"
       />
     </form>
   )
@@ -66,6 +67,7 @@ function FilterSection({ selectedRole, onRoleSelect }: FilterSectionProps) {
           role={role}
           onClick={() => onRoleSelect(selectedRole === role ? null : role)}
           looksDisabled={!!selectedRole && selectedRole !== role}
+          data-testid={`role-badge-${role}`}
         />
       ))}
     </FilterRow>
